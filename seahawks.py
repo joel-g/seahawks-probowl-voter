@@ -42,7 +42,7 @@ def make_unique():
     return ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(3))
 
 def emoji():
-    return random.choice("🏈", "📆", "🏟️", "🌠", "🇺🇸", "🐦", "📺", "🎉", "😂", "1️⃣2️⃣", "🔥", "🏆")
+    return random.choice(("🏈", "📆", "🏟️", "🌠", "🇺🇸", "🐦", "📺", "🎉", "😂", "1️⃣2️⃣", "🔥", "🏆"))
 
 def random_sleep():
     sleep_time = randint(300, 600)

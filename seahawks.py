@@ -38,10 +38,11 @@ STATUSES = (
     "Retweet any of my tweets to vote Seahawks players to the Pro Bowl!"
     )
 
-
-
 def make_unique():
     return ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(3))
+
+def emoji():
+    return random.choice("🏈", "📆", "🏟️", "🌠", "🇺🇸", "🐦", "📺", "🎉", "😂", "1️⃣2️⃣", "🔥", "🏆")
 
 def random_sleep():
     sleep_time = randint(300, 600)
@@ -49,7 +50,7 @@ def random_sleep():
     time.sleep(sleep_time)
 
 while True:
-    custom_status = "Retweet to #ProBowlVote " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks 📆"
+    custom_status = "Retweet to #ProBowlVote " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + emoji() + " #Seahawks"
     print(custom_status)
     api.update_status(custom_status)
     random_sleep()

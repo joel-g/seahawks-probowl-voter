@@ -1,4 +1,5 @@
 import requests, sys, tweepy, time, string, random
+from random import randint
 
 config = open('config.ini','r')
 tokens = config.readlines()
@@ -12,6 +13,12 @@ ACCESS_SECRET = tokens[3].rstrip()
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
+
+PLAYERS = (
+    "DangeRussWilson", "@TDLockett12", "@prichiejr", "@TheJimmyGraham", "@JustinBritt68", "@DuaneBrown76", "@DougBaldwinJr", "@Earl_Thomas",
+    "@TheRealFrankC_", "@mosesbread72", "@SdotRich91", "@Bwagz54", "@KJ_WRIGHT34", "@Neiko15", "@jonryan9", "@BlairWalsh3", "@Ottomatic82", "@D_alexander57", "@RSherman_25",
+    "@DougBaldwinJr", "@Kam_Chancellor", "@ShaquillG", "@StayingInMyLane", "@dshead24", "@LWillson_82"
+    )
 
 STATUSES = (
     "#ProBowlVote @DangeRussWilson @TDLockett12 @prichiejr @TheJimmyGraham @JustinBritt68 @DuaneBrown76 @DougBaldwinJr",
@@ -29,15 +36,25 @@ STATUSES = (
     "Tied for the @NFL lead in TDs, Jimmy Graham is at the top of his game. ￼ RT to #ProBowlVote @TheJimmyGraham 🛩",
     "RT to #ProBowlVote @mosesbread72!",
     "Retweet any of my tweets to vote Seahawks players to the Pro Bowl!"
-)
+    )
+
+
 
 def make_unique():
     return ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(3))
 
+def random_sleep():
+    sleep_time = randint(300, 600)
+    print("Sleeping for " + str(sleep_time) + " seconds.")
+    time.sleep(sleep_time)
+
 while True:
-    for status in STATUSES:
-        next_status = status + " " + make_unique()
-        print(next_status)
-        api.update_status(next_status)
-        print("Sleeping...")
-        time.sleep(60)
+    custom_status = "Retweet to #ProBowlVote " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks"
+    print(custom_status)
+    api.update_status(custom_status)
+    random_sleep()
+    next_status = random.choice(STATUSES) + " " + make_unique()
+    print(next_status)
+    api.update_status(next_status)
+    random_sleep()
+    

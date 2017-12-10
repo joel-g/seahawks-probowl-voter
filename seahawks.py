@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 PLAYERS = (
     "DangeRussWilson", "@TDLockett12", "@prichiejr", "@TheJimmyGraham", "@JustinBritt68", "@DuaneBrown76", "@DougBaldwinJr", "@Earl_Thomas",
     "@TheRealFrankC_", "@mosesbread72", "@SdotRich91", "@Bwagz54", "@KJ_WRIGHT34", "@Neiko15", "@jonryan9", "@BlairWalsh3", "@Ottomatic82", "@D_alexander57", "@RSherman_25",
-    "@DougBaldwinJr", "@Kam_Chancellor", "@ShaquillG", "@StayingInMyLane", "@dshead24", "@LWillson_82"
+    "@DougBaldwinJr", "@Kam_Chancellor", "@ShaquillG", "@StayingInMyLane", "@dshead24", "@LWillson_82", "@BabyLead", "@1j_reed"
     )
 
 STATUSES = (
@@ -49,7 +49,7 @@ def random_sleep():
     time.sleep(sleep_time)
 
 while True:
-    custom_status = "Retweet to #ProBowlVote " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks"
+    custom_status = "Retweet to #ProBowlVote 📆 " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks"
     print(custom_status)
     api.update_status(custom_status)
     random_sleep()

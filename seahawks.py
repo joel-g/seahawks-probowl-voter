@@ -49,7 +49,7 @@ def random_sleep():
     time.sleep(sleep_time)
 
 while True:
-    custom_status = "Retweet to #ProBowlVote 📆 " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks"
+    custom_status = "Retweet to #ProBowlVote " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + random.choice(PLAYERS) + " " + make_unique() + " #Seahawks 📆"
     print(custom_status)
     api.update_status(custom_status)
     random_sleep()

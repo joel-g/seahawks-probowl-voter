@@ -45,7 +45,7 @@ def emoji():
     return random.choice(("🏈", "📆", "🏟️", "🌠", "🇺🇸", "🐦", "📺", "🎉", "😂", "1️⃣2️⃣", "🔥", "🏆"))
 
 def random_sleep():
-    sleep_time = randint(300, 600)
+    sleep_time = randint(400, 800)
     print("Sleeping for " + str(sleep_time) + " seconds.")
     time.sleep(sleep_time)
 
